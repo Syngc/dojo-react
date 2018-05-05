@@ -21,20 +21,49 @@ class Creador extends Component {
       this.setState(
           porClave(clave, valor)
     )
+    this.props.sendData(this.state.titulo, this.state.cuerpo, this.state.referencias, this.state.url);
   }
 
   render() {
     return (
       <div className="App">
-      {this.state.titulo}
         <table>
             <tbody>
                 <tr>
                     <td>
-                        <div>Titulo del articulo:</div>
+                        <div className="texto">Titulo del articulo:</div>
                     </td>
                     <td>
-                        <input type="Text" placeholder="Titulo" onChange={event => this.manejador('titulo',event.target.value)}/>
+                        <input type="Text" placeholder="Titulo" className="campoForm" onChange={event => this.manejador('titulo',event.target.value)}/>
+                    </td>
+                    
+                </tr>
+                <tr>
+                    <td>
+                        <div className="texto">Url del articulo:</div>
+                    </td>
+                    <td>
+                    <input type="Text" placeholder="Url" className="campoForm" onChange={event => this.manejador('url',event.target.value)}/>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <div className="texto">Cuerpo del articulo:</div>
+                    </td>
+                    <td>
+                    <textarea rows="10" cols="50" type="text" className="campoArea"onChange={event => this.manejador('cuerpo', event.target.value)}>
+                        </textarea>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <div className="texto" >referencia del articulo:</div>
+                    </td>
+                    <td>
+                    <textarea rows="3" cols="50" type="text" placeholder="Referencias" className="campoArea" onChange={event => this.manejador('referencias', event.target.value)}>
+                        </textarea>
                     </td>
                 </tr>
 

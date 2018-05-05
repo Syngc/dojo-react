@@ -1,21 +1,11 @@
 import React, { Component } from 'react';
-import './Visualizador.css';
-import PropTypes from 'prop-types';
+import Creador from './Creador/Creador';
+import Visualizador from './Visualizador/Visualizador';
 
-class Visualizador extends Component {
-    constructor(){
-        super();
-        this.imagen = '';
-        this.state = {
-            titulo : '',
-            cuerpo : '',
-            referencias : '',
-            url : ''
-        }
-    }
-  render() {
-    return (
-        <div className="App">
+class Mobile extends components{
+    render(){
+        return(
+        <div className= "App">
             <div className="titulo">{this.props.titulo=='' ? 'Titulo': this.props.titulo}</div>
             <img src={this.props.url==''
             ? 'https://www.myrenova.com/Plugins/Renova.Personalization/Content/Images/Configurador/empty.png'
@@ -23,8 +13,6 @@ class Visualizador extends Component {
             <div className="cuerpo">{this.props.cuerpo== '' ? 'Cuerpo del Articulo' : this.props.cuerpo}</div>
             <a padding className="referencias" href={this.props.referencias}>{this.props.referencias}</a>   
         </div>
-    );
-  }
+        );   
+    }
 }
-
-export default Visualizador;
