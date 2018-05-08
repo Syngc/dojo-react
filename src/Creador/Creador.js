@@ -24,6 +24,7 @@ class Creador extends Component {
     this.props.sendData(this.state.titulo, this.state.cuerpo, this.state.referencias, this.state.url);
   }
 
+
   render() {
     return (
       <div className="App">
@@ -66,7 +67,6 @@ class Creador extends Component {
                         </textarea>
                     </td>
                 </tr>
-
             </tbody>
         </table>
       </div>

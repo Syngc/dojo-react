@@ -3,6 +3,7 @@
   import './App.css';
   import Creador from './Creador/Creador';
   import Visualizador from './Visualizador/Visualizador';
+  import Mobile from './Mobile/Mobile';
 
   class App extends Component {
     constructor(){
@@ -30,6 +31,10 @@
       this.setState({
         mobile : !this.state.mobile
       })
+    }
+
+    setEstilo(clave, valor){
+      document.getElementsByClassName('text').style[clave] = valor;
     }
 
     render() {
@@ -66,22 +71,44 @@
                   <Creador sendData={this.getData}/>
                 </td>
                 <td>
-                {mobile ? (
+                {!mobile ? (
                   <Visualizador titulo = {tituloArticulo} 
                                 cuerpo = {cuerpoArticulo} 
                                 referencias = {referenciasArticulo}
                                 url = {urlArticulo} 
                                 />)
-                                : ( <div>Holiwi</div>)
-                              }
-
+                                : (
+                  <Mobile titulo = {tituloArticulo} 
+                                cuerpo = {cuerpoArticulo} 
+                                referencias = {referenciasArticulo}
+                                url = {urlArticulo} 
+                                />)
+                }
                 </td>
               </tr>
+              <tr>
+                    <td>
+                        <label for="color" className="texto">Color</label>
+                        <input type="color" name="color" id="color" onChange={event => this.setEstilo('color',event.target.value)}/>
+                    </td>
+                    <td>
+                        <label for="tamano" className="texto">Tamaño</label>
+                        <input type="number" name="tamano" id="tamano"/>
+                    </td>
+                    <td>
+                        <label for="fuente" className="texto">Fuente</label>
+                        <input list="list" name="fuente" id="fuente"/>
+                        <datalist id="list">
+                            <option value="Segoe UI"/>
+                            <option value="Tahoma"/>
+                            <option value="Geneva"/>
+                            <option value="Verdana"/>
+                            <option value="sans-serif"/>
+                        </datalist>
+                    </td>
+                </tr>
             </tbody>
-            </table>)
-            :
-     
-          
+            </table>
           </div>
         </div>
       );
