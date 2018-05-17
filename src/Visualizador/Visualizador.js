@@ -10,13 +10,16 @@ class Visualizador extends Component {
             titulo : '',
             cuerpo : '',
             referencias : '',
-            url : ''
+            url : '',
+            mycolor: '',
+            tamano:'',
+            fuente:''
         }
     }
   render() {
     return (
-        <div className="App">
-            <div className="titulo">{this.props.titulo=='' ? 'Titulo': this.props.titulo}</div>
+        <div className="App" >
+            <div className="titulo" style={{color:this.props.mycolor,fontSize:this.props.tamano, fontFamily:this.props.fuente}}>{this.props.titulo=='' ? 'Titulo': this.props.titulo}</div>
             <img src={this.props.url==''
             ? 'https://www.myrenova.com/Plugins/Renova.Personalization/Content/Images/Configurador/empty.png'
             : this.props.url} className="imagen"></img>

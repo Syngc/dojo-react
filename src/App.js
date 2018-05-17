@@ -13,17 +13,23 @@
           cuerpoArticulo : '',
           referenciasArticulo : '',
           urlArticulo : '',
+          mycolor: '',
+          tamano: '',
+          fuente:'',
           mobile : false
       }
       this.getData = this.getData.bind(this);
     }
 
-    getData(tituloR, cuerpoR, refR, urlR){
+    getData(tituloR, cuerpoR, refR, urlR, colorR, tamanoR, fuenteR){
       this.setState({
         tituloArticulo : tituloR,
         cuerpoArticulo : cuerpoR,
         referenciasArticulo : refR,
-        urlArticulo : urlR
+        urlArticulo : urlR,
+        colorArticulo: colorR,
+        tamanoArticulo : tamanoR,
+        fuenteArticulo: fuenteR
       })
     }
 
@@ -33,16 +39,15 @@
       })
     }
 
-    setEstilo(clave, valor){
-      document.getElementsByClassName('text').style[clave] = valor;
-    }
-
     render() {
       const {
         tituloArticulo,
         cuerpoArticulo,
         referenciasArticulo,
         urlArticulo,
+        colorArticulo,
+        tamanoArticulo,
+        fuenteArticulo,
         mobile    
       } = this.state;
       return (
@@ -76,37 +81,22 @@
                                 cuerpo = {cuerpoArticulo} 
                                 referencias = {referenciasArticulo}
                                 url = {urlArticulo} 
+                                mycolor = {colorArticulo}
+                                tamano = {tamanoArticulo}
+                                fuente = {fuenteArticulo}
                                 />)
                                 : (
                   <Mobile titulo = {tituloArticulo} 
-                                cuerpo = {cuerpoArticulo} 
-                                referencias = {referenciasArticulo}
-                                url = {urlArticulo} 
-                                />)
+                          cuerpo = {cuerpoArticulo} 
+                          referencias = {referenciasArticulo}
+                          url = {urlArticulo} 
+                          mycolor = {colorArticulo}
+                          tamano = {tamanoArticulo}
+                          fuente = {fuenteArticulo}
+                          />)
                 }
                 </td>
               </tr>
-              <tr>
-                    <td>
-                        <label for="color" className="texto">Color</label>
-                        <input type="color" name="color" id="color" onChange={event => this.setEstilo('color',event.target.value)}/>
-                    </td>
-                    <td>
-                        <label for="tamano" className="texto">Tamaño</label>
-                        <input type="number" name="tamano" id="tamano"/>
-                    </td>
-                    <td>
-                        <label for="fuente" className="texto">Fuente</label>
-                        <input list="list" name="fuente" id="fuente"/>
-                        <datalist id="list">
-                            <option value="Segoe UI"/>
-                            <option value="Tahoma"/>
-                            <option value="Geneva"/>
-                            <option value="Verdana"/>
-                            <option value="sans-serif"/>
-                        </datalist>
-                    </td>
-                </tr>
             </tbody>
             </table>
           </div>

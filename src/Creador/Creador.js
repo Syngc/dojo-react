@@ -13,7 +13,10 @@ class Creador extends Component {
         titulo : '',
         cuerpo : '',
         referencias : '',
-        url : ''
+        url : '',
+        mycolor: '',
+        tamano:'',
+        fuente:''
     }
   }
   
@@ -21,7 +24,7 @@ class Creador extends Component {
       this.setState(
           porClave(clave, valor)
     )
-    this.props.sendData(this.state.titulo, this.state.cuerpo, this.state.referencias, this.state.url);
+    this.props.sendData(this.state.titulo, this.state.cuerpo, this.state.referencias, this.state.url, this.state.mycolor, this.state.tamano, this.state.fuente);
   }
 
 
@@ -65,6 +68,27 @@ class Creador extends Component {
                     <td>
                     <textarea rows="3" cols="50" type="text" placeholder="Referencias" className="campoArea" onChange={event => this.manejador('referencias', event.target.value)}>
                         </textarea>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="color" className="texto">Color</label>
+                        <input type="color" name="color" id="color" onChange={event => this.manejador('mycolor', event.target.value)}/>
+                    </td>
+                    <td>
+                        <label for="tamano" className="texto" onChange={event => this.manejador('tamano', event.target.value)}>Tamaño</label>
+                        <input type="number" name="tamano" id="tamano"/>
+                    </td>
+                    <td>
+                        <label for="fuente" className="texto" onChange={event => this.manejador('fuente', event.target.value)}>Fuente</label>
+                        <input list="list" name="fuente" id="fuente"/>
+                        <datalist id="list">
+                            <option value="Segoe UI"/>
+                            <option value="Tahoma"/>
+                            <option value="Geneva"/>
+                            <option value="Verdana"/>
+                            <option value="sans-serif"/>
+                        </datalist>
                     </td>
                 </tr>
             </tbody>
